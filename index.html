@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A premium, dynamic expense splitter application.">
+    <title>Advanced Expense Splitter</title>
+    <!-- Modern Font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="blob-c">
+        <div class="shape blob1"></div>
+        <div class="shape blob2"></div>
+        <div class="shape blob3"></div>
+    </div>
+    <div class="container glass-panel">
+        <header>
+            <h1 class="gradient-text">Expense Splitter</h1>
+            <p class="subtitle">Fair, fast, and beautiful.</p>
+        </header>
+        
+        <section id="setup" class="step-section">
+            <h2>Setup Participants</h2>
+            <div class="input-group">
+                <label for="numParticipants">Number of Participants</label>
+                <input type="number" id="numParticipants" min="1" placeholder="e.g. 3">
+            </div>
+            <button onclick="setupParticipants()" class="primary-btn pulse-glow">Next</button>
+            <div id="participantNames" class="dynamic-list"></div>
+        </section>
+
+        <section id="addExpenses" class="step-section hidden fade-in">
+            <h2>Add Expense</h2>
+            <div class="expense-inputs">
+                <div class="input-group">
+                    <input type="text" id="expenseDescription" placeholder="What was it for?">
+                </div>
+                <div class="input-group">
+                    <input type="number" id="expenseAmount" placeholder="Amount ($)">
+                </div>
+                <div class="input-group">
+                    <select id="expensePaidBy">
+                        <option value="" disabled selected>Who paid?</option>
+                    </select>
+                </div>
+            </div>
+            <button onclick="addExpense()" class="primary-btn">Add Expense</button>
+            <ul id="expensesList" class="styled-list"></ul>
+            
+            <div class="upload-section">
+                <label for="uploadBill" class="upload-label">
+                    <span>📁 Upload Receipt Image</span>
+                    <input type="file" id="uploadBill" accept="image/*" onchange="showBill()">
+                </label>
+            </div>
+            <div id="billContainer"></div>
+            
+            <button onclick="calculateSplit()" class="success-btn mt-4">Calculate Splits</button>
+        </section>
+
+        <section id="results" class="step-section hidden fade-in">
+            <h2>Split Calculation Results</h2>
+            <ul id="resultsList" class="styled-list result-list"></ul>
+            <button onclick="location.reload()" class="secondary-btn mt-4">Start Over</button>
+        </section>
+    </div>
+    
+    <div class="group-project-footer">
+        <p>A Group Project By: <strong>Hani Abdulla A P</strong> & <strong>Ganesh Rajeevkumar</strong></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
